@@ -11,6 +11,17 @@ import { Provider } from "react-redux";
 import "./reset.scss";
 import "./app.scss";
 
+/** redux without react */
+import { User, create } from "./modules/user/reducer/userSlice";
+
+console.log(store.getState());
+const newUser = new User("1", "test", "asfd@asdf.com");
+const actionCreateUser = create({ ...newUser });
+console.log(actionCreateUser);
+console.log(store.dispatch(actionCreateUser));
+console.log(store.getState());
+/** redux without react */
+
 const Router = () => {
   return (
     <BrowserRouter>
