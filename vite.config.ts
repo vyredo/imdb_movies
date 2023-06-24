@@ -9,5 +9,12 @@ export default defineConfig({
     alias: {
       '~': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  // @ts-expect-error type test is detected by defineConfig
+  test: {
+      environment: 'jsdom',
+      setupFiles: ['./tests/setup.ts'],
+      testMatch: ['./tests/**/*.test.tsx'],
+      globals: true
   }
 })
