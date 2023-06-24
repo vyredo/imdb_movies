@@ -1,6 +1,6 @@
 /** create unit test for movie component */
 import { render, screen } from "@testing-library/react";
-import { Movie } from "./Movie";
+import { Movie } from "./movie";
 
 const testId = "tt0111161";
 describe("Render movie with Not Found", () => {
