@@ -39,7 +39,6 @@ The code structure utilize module based.
 ├── app.tsx
 ├── app.scss
 ├── reset.scss
-
 ├── mockData                    -> mockData for unit test
 │   └── movies.tsx
 ├── restAPI                     -> Contain all Rest API
@@ -50,7 +49,6 @@ The code structure utilize module based.
 │       ├── BackButton.tsx
 │       ├── Header.scss
 │       └── Header.tsx
-
 ├── modules         
 │   ├── favorites
 │   │   ├── component           -> Each module can have components (page)
