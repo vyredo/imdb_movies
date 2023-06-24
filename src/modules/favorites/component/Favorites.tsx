@@ -1,20 +1,17 @@
-import React, { useContext } from "react";
-import { FavoritesContext } from "..";
-// import Movie from "../../movies/context/movieCtx";
-// import { useFavoriteAPI } from "../context/favoritesAPI";
+import React from "react";
+
 import { MovieItem } from "../../movies/components/movies/movies";
 import { Header } from "../../../sharedComponents/Header/Header";
+import { useAppSelector } from "../../../app.store";
 
 export const Favorites: React.FC = () => {
-  const { favorites } = useContext(FavoritesContext);
-
-  // favorites can reuse component from Movies
+  const favorites = useAppSelector((state) => state.favoriteReducer);
 
   return (
     <>
       <Header title="My Favorites" />
       <div className="favorite-page">
-        {Array.from(favorites).map(([, fmovie]) => {
+        {Object.values(favorites).map((fmovie) => {
           return <MovieItem key={fmovie.id} movie={fmovie} />;
         })}
       </div>
