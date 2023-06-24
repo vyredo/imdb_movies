@@ -4,8 +4,10 @@ import { Layout } from "./modules/Layout";
 import { MovieRouter, MoviesProvider } from "./modules/movies";
 import { FavoriteRouter, FavoritesProvider } from "./modules/favorites";
 import { BrowserRouter } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
 
-import "./index.scss";
+// import "./reset.scss";
+import "./global.scss";
 
 const Router = () => {
   return (
@@ -24,13 +26,18 @@ const Router = () => {
 };
 
 const App: React.FC = () => {
-  // todo: add error boundary
+  // todo: add test with react-testing-library
+  // todo: add notification
+  // todo: uncomment reset css
+  // todo: add back button
   return (
-    <MoviesProvider>
-      <FavoritesProvider>
-        <Router />
-      </FavoritesProvider>
-    </MoviesProvider>
+    <ErrorBoundary fallbackRender={() => <div>something wrong</div>}>
+      <MoviesProvider>
+        <FavoritesProvider>
+          <Router />
+        </FavoritesProvider>
+      </MoviesProvider>
+    </ErrorBoundary>
   );
 };
 
