@@ -1,21 +1,18 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { getMovies } from "../../../API/imdb";
+import React, { createContext, useEffect, useState } from "react";
+import { getMovies } from "../../../RestAPI/imdb";
 
-class Movie {
+export class Movie {
   id = "";
   title = "";
   image = "";
   year = 0;
   imDbRating = 0;
-  isFavorite = false;
 }
-
 export default Movie;
 
 export const MoviesContext = createContext<Movie[]>([]);
-
 // Provider will return favorites and API to add/remove favorites
-export const MoviesProvider: React.FC<{ children: React.Component }> = ({
+export const MoviesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
