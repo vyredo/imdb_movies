@@ -4,7 +4,7 @@ This repo can be viewed by visiting <a href="https://imdb-aa034.web.app/">https:
 
 For this repo, I use React-testing-library as the automation test
 
-Stack used:
+# Stack used:
 - React18
 - React packages: 
   - React-router
