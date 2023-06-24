@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getMovies } from "../../../RestAPI/imdb";
+import { getMovies } from "../../../restAPI/imdb";
 
 export class Movie {
   id = "";
