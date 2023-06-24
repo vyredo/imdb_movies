@@ -1,31 +1,31 @@
-import React, { useContext } from "react";
-import { MoviesContext } from "../../";
+import React from "react";
 import { useParams } from "react-router-dom";
 
-import { Movie as MovieType } from "../../context/movieCtx";
-import { useFavoriteAPI } from "../../../favorites/context/favoritesAPI";
-import { FavoritesContext } from "../../../favorites";
 import { Header } from "../../../../sharedComponents/Header/Header";
+import { Movie as MovieType, imdbApi } from "../../../../services/imdb";
 import "./movie.scss";
+import { useAppDispatch, useAppSelector } from "../../../../app.store";
+import {
+  addToFavorite,
+  removeFromFavorite,
+} from "../../../favorites/reducer/favoriteReducer";
 
 export const Movie: React.FC = () => {
-  const { favorites, setFavorites } = useContext(FavoritesContext);
-  const { addToFavorite, removeFromFavorite, isFavorite } = useFavoriteAPI(
-    favorites,
-    setFavorites
-  );
-  const { movieId } = useParams();
-  const movies = useContext(MoviesContext);
+  const favorites = useAppSelector((state) => state.favoriteReducer);
+  const dispatch = useAppDispatch();
+  const isFavorite = (movie: MovieType) => !!favorites[movie.id];
 
-  const movie = movies.find(({ id }) => (movieId ?? "") === id);
+  const { movieId } = useParams();
+  const { data } = imdbApi.useGetMoviesQuery("en");
+  const movie = data?.items.find((movie) => movie.id === movieId);
   if (!movie) return <div>Movie not found</div>;
 
   const handleClick = (movie: MovieType) => {
     if (isFavorite(movie)) {
-      return removeFromFavorite(movie);
+      return dispatch(removeFromFavorite(movie));
     }
 
-    addToFavorite(movie);
+    dispatch(addToFavorite(movie));
   };
 
   return (

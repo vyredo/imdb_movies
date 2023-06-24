@@ -1,9 +1,7 @@
-import { useContext } from "react";
-import { MoviesContext } from "../../";
-import Movie from "../../context/movieCtx";
 import { Link } from "react-router-dom";
-import "./movies.scss";
 import { Header } from "../../../../sharedComponents/Header/Header";
+import { imdbApi } from "../../../../services/imdb";
+import "./movies.scss";
 
 export const MovieItem = ({ movie }: { movie: Movie }) => {
   return (
@@ -17,12 +15,20 @@ export const MovieItem = ({ movie }: { movie: Movie }) => {
 };
 
 export const Movies: React.FC = () => {
-  const topMovies = useContext(MoviesContext);
+  const {
+    data: topMovies,
+    isError,
+    isLoading,
+  } = imdbApi.useGetMoviesQuery("en");
+
+  if (isError) return <div>Something Wrong</div>;
+  if (isLoading) return <div>Loading </div>;
+
   return (
     <>
       <Header />
       <div className="movies-page">
-        {topMovies.map((movie) => (
+        {topMovies?.items.map((movie) => (
           <MovieItem key={movie.id} movie={movie} />
         ))}
       </div>
