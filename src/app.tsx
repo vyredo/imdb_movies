@@ -1,12 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import { NoMatch } from "./modules/NoMatch";
-import { MovieRouter, MoviesProvider } from "./modules/movies";
-import { FavoriteRouter, FavoritesProvider } from "./modules/favorites";
+import { NoMatch } from "./sharedComponents/NoMatch";
+import { MovieRouter } from "./modules/movies";
+import { FavoriteRouter } from "./modules/favorites";
 import { BrowserRouter } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 
+import { store } from "./app.store";
+import { Provider } from "react-redux";
+
 import "./reset.scss";
-import "./global.scss";
+import "./app.scss";
 
 const Router = () => {
   return (
@@ -26,11 +29,13 @@ const App: React.FC = () => {
   // todo: add notification
   return (
     <ErrorBoundary fallbackRender={() => <div>something wrong</div>}>
-      <MoviesProvider>
-        <FavoritesProvider>
-          <Router />
-        </FavoritesProvider>
-      </MoviesProvider>
+      <Provider store={store}>
+        {/* <MoviesProvider>
+          <FavoritesProvider> */}
+        <Router />
+        {/* </FavoritesProvider>
+        </MoviesProvider> */}
+      </Provider>
     </ErrorBoundary>
   );
 };
