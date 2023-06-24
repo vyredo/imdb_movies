@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../../../app.store";
 import {
   addToFavorite,
   removeFromFavorite,
-} from "../../../favorites/reducer/favoriteReducer";
+} from "../../../favorites/reducer/favoriteSlice";
 
 export const Movie: React.FC = () => {
   const favorites = useAppSelector((state) => state.favoriteReducer);

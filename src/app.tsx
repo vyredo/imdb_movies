@@ -26,15 +26,10 @@ const Router = () => {
 };
 
 const App: React.FC = () => {
-  // todo: add notification
   return (
     <ErrorBoundary fallbackRender={() => <div>something wrong</div>}>
       <Provider store={store}>
-        {/* <MoviesProvider>
-          <FavoritesProvider> */}
         <Router />
-        {/* </FavoritesProvider>
-        </MoviesProvider> */}
       </Provider>
     </ErrorBoundary>
   );

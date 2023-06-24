@@ -3,8 +3,8 @@ import { Movie } from "../../../services/imdb";
 
 const initialState: Record<string, Movie> = {};
 
-export const favoriteReducer = createSlice({
-  name: "counter",
+export const favoriteSlice = createSlice({
+  name: "favoriteSlice",
   initialState,
   reducers: {
     addToFavorite: (state, action) => {
@@ -18,6 +18,6 @@ export const favoriteReducer = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addToFavorite, removeFromFavorite } = favoriteReducer.actions;
+export const { addToFavorite, removeFromFavorite } = favoriteSlice.actions;
 
-export default favoriteReducer.reducer;
+export default favoriteSlice.reducer;
