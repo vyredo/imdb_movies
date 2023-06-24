@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MoviesContext } from "../../";
 import Movie from "../../context/movieCtx";
 import { Link } from "react-router-dom";
