@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Header } from "../../../../sharedComponents/Header/Header";
-import { imdbApi } from "../../../../services/imdb";
+import { Movie, imdbApi } from "../../../../services/imdb";
 import "./movies.scss";
 
 export const MovieItem = ({ movie }: { movie: Movie }) => {
