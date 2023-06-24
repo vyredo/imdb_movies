@@ -34,17 +34,17 @@ run at localhost:5173
 The code structure utilize module based.
 
 ```
-├── main.tsx       -> Main file
+├── main.tsx                    -> Main file
 ├── app.test.tsx
 ├── app.tsx
 ├── app.scss
 ├── reset.scss
 
-├── mockData       -> mockData for unit test
+├── mockData                    -> mockData for unit test
 │   └── movies.tsx
-├── restAPI        -> Contain all Rest API
+├── restAPI                     -> Contain all Rest API
 │   └── imdb.ts
-├── sharedComponents -> Contain all general shared components
+├── sharedComponents            -> Contain all general shared components
 │   ├── NoMatch.tsx
 │   └── Header
 │       ├── BackButton.tsx
@@ -53,14 +53,14 @@ The code structure utilize module based.
 
 ├── modules         
 │   ├── favorites
-│   │   ├── component  -> Each module can have components (page)
+│   │   ├── component           -> Each module can have components (page)
 │   │   │   └── Favorites.tsx
-│   │   ├── context    -> separate logic from component/view
+│   │   ├── context             -> separate logic from component/view
 │   │   │   ├── favoritesAPI.tsx
 │   │   │   └── favoritesCtx.tsx
 │   │   └── index.tsx
 │   ├── movies
-│   │   ├── components  -> Each module can have components (page)
+│   │   ├── components          -> Each module can have components (page)
 │   │   │   ├── movie
 │   │   │   │   ├── movie.scss
 │   │   │   │   ├── movie.test.tsx
@@ -69,7 +69,7 @@ The code structure utilize module based.
 │   │   │       ├── movies.scss
 │   │   │       ├── movies.test.tsx
 │   │   │       └── movies.tsx
-│   │   ├── context -> separate logic from component/view
+│   │   ├── context             -> separate logic from component/view
 │   │   │   └── movieCtx.tsx
 │   │   └── index.tsx
 └── vite-env.d.ts
