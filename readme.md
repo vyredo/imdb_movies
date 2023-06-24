@@ -9,6 +9,7 @@ For this repo, I use React-testing-library as the automation test
 - React packages: 
   - React-router
   - React-error-boundary
+  - Redux Toolkit
 - Testing: **React-testing-library**
 - Test packages: **mock-service-worker**
 - Styles: **scss**
@@ -36,12 +37,13 @@ The code structure utilize module based.
 ```
 ├── main.tsx                    -> Main file
 ├── app.test.tsx
+├── app.store.tsx               -> Gloval Redux store
 ├── app.tsx
 ├── app.scss
 ├── reset.scss
 ├── mockData                    -> mockData for unit test
 │   └── movies.tsx
-├── restAPI                     -> Contain all Rest API
+├── services                    -> Contain all Rest API with RTK Query
 │   └── imdb.ts
 ├── sharedComponents            -> Contain all general shared components
 │   ├── NoMatch.tsx
@@ -53,9 +55,8 @@ The code structure utilize module based.
 │   ├── favorites
 │   │   ├── component           -> Each module can have components (page)
 │   │   │   └── Favorites.tsx
-│   │   ├── context             -> separate logic from component/view
-│   │   │   ├── favoritesAPI.tsx
-│   │   │   └── favoritesCtx.tsx
+│   │   ├── reducer             -> folder for reducer
+│   │   │   ├── favoritesReducer.tsx
 │   │   └── index.tsx
 │   ├── movies
 │   │   ├── components          -> Each module can have components (page)
@@ -67,8 +68,6 @@ The code structure utilize module based.
 │   │   │       ├── movies.scss
 │   │   │       ├── movies.test.tsx
 │   │   │       └── movies.tsx
-│   │   ├── context             -> separate logic from component/view
-│   │   │   └── movieCtx.tsx
 │   │   └── index.tsx
 └── vite-env.d.ts
 ```
